@@ -1,6 +1,6 @@
 # VanillaMacros
 
-For these macros to work you will the following Addons installed:
+For these macros to work you will need the following Addons installed:
 
 - Supermacro
 - LazyPig Multibox
