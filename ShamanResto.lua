@@ -1,4 +1,4 @@
-/script if UnitMana("Player") < 1000 then use("Major Mana Potion") end;
+/script if UnitMana("Player") < 1000 then use("Major Mana Potion"); end
 /script if UnitMana("Player") < 1000 then use("Superior Mana Potion") end;
 /script if UnitMana("Player") < 3500 and not buffed("Mana Tide", 'player') then cast("Mana Tide Totem") end;
 -- /script if UnitMana("Player") < 2000 then cast("Mana Tide Totem") end;
