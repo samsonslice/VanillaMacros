@@ -1,0 +1,13 @@
+/script if UnitMana("Player") < 1000 then use("Major Mana Potion") end;
+/script if UnitMana("Player") < 1000 then use("Superior Mana Potion") end;
+/script if UnitMana("Player") < 1500 then ClearTarget(); cast("Innervate") SpellTargetUnit("Player"); end
+/decursive
+/script if (UnitHealth("player") / UnitHealthMax("player")) < 0.9 then if (UnitHealth("player") / UnitHealthMax("player")) < 0.2 then CastSpellByName("Nature's Swiftness") CastSpellByName("Healing Touch(Rank 9)") SpellTargetUnit("player"); end; if ((UnitHealthMax("player"))-(UnitHealth("player"))) > 1000 then CastSpellByName("Healing Touch(Rank 4)") SpellTargetUnit("player"); end; if ((UnitHealthMax("player"))-(UnitHealth("player"))) > 600 and not buffed("Rejuvenation", "player") then CastSpellByName("Rejuvenation(Rank 5)") SpellTargetUnit("player"); end end;
+/script if GetRaidRosterInfo(1) then for i=1,40 do ri=math.random(1,GetNumRaidMembers()); if (UnitHealth("raid"..ri) / UnitHealthMax("raid"..ri)) < 0.9 and CheckInteractDistance("raid"..ri, 4) then if (UnitHealth("raid"..ri) / UnitHealthMax("raid"..ri)) < 0.2 then CastSpellByName("Nature's Swiftness") CastSpellByName("Healing Touch(Rank 9)"); SpellTargetUnit("raid"..ri); end; if ((UnitHealthMax("raid"..ri))-(UnitHealth("raid"..ri))) > 1000 then cast("Healing Touch(Rank 4)"); SpellTargetUnit("raid"..ri); end; if ((UnitHealthMax("raid"..ri))-(UnitHealth("raid"..ri))) > 600 and not buffed("Rejuvenation", "raid"..ri) then cast("Rejuvenation(Rank 5)"); end; SpellTargetUnit("raid"..ri); end end; else for i=1,4 do if (UnitHealth("party"..i) / UnitHealthMax("party"..i)) < 0.9 and CheckInteractDistance("party"..i, 4) then if (UnitHealth("party"..i) / UnitHealthMax("party"..i)) < 0.2 then CastSpellByName("Nature's Swiftness") CastSpellByName("Healing Touch(Rank 9)"); SpellTargetUnit("party"..i); end; if ((UnitHealthMax("party"..i))-(UnitHealth("party"..i))) > 1000 then cast("Healing Touch(Rank 4)"); SpellTargetUnit("party"..i); end; if ((UnitHealthMax("party"..i))-(UnitHealth("party"..i))) > 600 and not buffed("Rejuvenation", "party"..i) then cast("Rejuvenation(Rank 5)"); end; SpellTargetUnit("party"..i); end end; end;
+/assist samsage
+/script if UnitIsPlayer("target") then CastSpellByName("Moonfire"); end
+/script if not buffed("Insect Swarm", "target") then cast("Insect Swarm(Rank 1)") end
+
+--/script if not buffed("Mark of the Wild", 'target') then CastSpellByName("Mark of the Wild"); end
+--/script if (UnitHealth("target") / UnitHealthMax("target")) < 0.75 then CastSpellByName("Rejuvenation"); end
+--ClearTarget();
